@@ -1,0 +1,56 @@
+@media(max-width: 768px) {
+    .main-background {
+        min-width: 100%;
+        min-height: 100%;
+    }
+}
+@media(max-width: 1023px ) {
+    .main-background {
+        width : 100%;
+
+    }
+}
+
+.nav-header>li>a {
+    padding-right: 20px !important;
+}
+
+.centered {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.navbar-header{
+    position:fixed;
+    background-color:white;
+}
+
+.btn-img{
+    width:100px;
+}
+
+.btn-first{
+    padding-left:30%;
+}
+
+
+.navbar-header{
+    position:fixed;
+    background-color:white;
+}
+
+@font-face {
+  font-family: Chromatica-Bold;
+  font-weight: bold;
+  src: url("Chromatica-Bold.otf") format("opentype");
+
+}
+@font-face {
+  font-family: Chromatica-Light;
+  src: url("Chromatica-Light.otf") format("opentype")
+}
+
+body{
+  font-family:Chromatica-Bold ;
+}
