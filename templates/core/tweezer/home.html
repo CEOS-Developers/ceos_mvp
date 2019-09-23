@@ -28,20 +28,11 @@
                     {% endif %}
                 {% endfor %}
             {% endif %}
-
-            <img src="{% static "core/example.png" %}">
-            <h2 class="font-weight-normal">CEOS에 지원하세요</h2>
-            <p class="lead font-weight-normal">
-                서강대. 연세대. 이화여대. 홍익대. 네 학교의 환상적인 콜라보레이션, 우리를 춤추게 만듭니다!
-            </p>
             <form action="{% url 'tweezer' %}" method="post" class="p-2 mb-4">
                 {% csrf_token %}
                 <input type="email" name="email" class="form-control mb-3" placeholder="Email address">
                 <button type="submit" class="btn btn-primary">Take my email🕺</button>
-            </form>
-
-            <div class="bg-dark shadow-sm mb-0 mt-3 mx-auto"
-                 style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+            </form>          
         </div>
     </div>
 </div>
