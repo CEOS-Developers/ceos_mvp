@@ -20,19 +20,6 @@ def example(request):
 
     return render(request, 'core/example.html')
 
-def beanjari(request):
-    if request.method == 'POST':
-        email = request.POST['email']
-        if email == '' or re.match(EMAIL_REGEX, email) is None:
-            messages.error(request, "뭔가 잘못됨! 확인해라, 이메일!")
-            return HttpResponseRedirect(request.path)
-
-        Email.objects.create(email=request.POST['email'], submitted_from=request.path)
-        messages.success(request, "성공적으로 저장!")
-        return HttpResponseRedirect(request.path)
-
-    return render(request, 'core/beanjari.html')
-
 
 def beanjari(request):
     if request.method == 'POST':
