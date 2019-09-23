@@ -1,12 +1,63 @@
-.container {
-  max-width: 960px;
+html{
+    font-size: 10px;
+}
+body{
+    background-color: #eeeeee;
 }
 .container {
-    width: 1920px;
-    height: 5295px;
-    background-image: linear-gradient(to top, #a696ea, rgba(92, 61, 217, 0.56) 16%, rgba(108, 80, 221, 0.65) 25%, rgba(135, 112, 227, 0.47) 43%, rgba(172, 156, 236, 0.37) 63%, rgba(218, 211, 247, 0.15) 85%, rgba(86, 54, 216, 0), rgba(255, 255, 255, 0));
-  }
-
+  width: 100%;
+  max-width:  800px;
+  margin: 0 auto;
+}
+img{
+    width:100%;
+}
+p.message1{
+    width: 100%;
+    opacity: 0.61;
+    font-family: YGO550;
+    font-size: 3rem;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.84;
+    letter-spacing: normal;
+    text-align: center;
+    color: #5f5f5f;
+}
+p.message2{
+    width: 100%;
+    opacity: 0.61;
+    font-family: HelveticaNeue;
+    font-size: 3rem;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.84;
+    letter-spacing: normal;
+    text-align: center;
+    color: #5f5f5f;
+}
+.email{
+    width: 80%;
+    height: 128px;
+    margin-left: 10%;
+    padding-left: 2rem;
+    object-fit: contain;
+    border: solid 23px #5636d8;
+    background-color: #ffffff; 
+    font-size: 3rem;   
+}
+button{
+    width:50%;
+    margin-top: 100px;
+    margin-left:25%;
+    height: 100px;
+    font-size: 3rem;
+}
+form{
+    margin-top: -700px;
+}
 @media (min-width: 768px) {
   .flex-md-equal > * {
     -ms-flex: 1;
