@@ -8,48 +8,70 @@
       content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
     />
     <title>Tweezer</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
     <link rel="stylesheet" href="{% static "core/tweezer/styles.css" %}">
-  </head>
+    <script type="text/javascript">
+        function scrollIntoMyView(idNum) {
+            const element = document.getElementById('loc' + idNum);
+            element.scrollIntoView({block:'end', behavior:'smooth'})
+        }
+        </script>  
+</head>
   <body>
-    <div class="container">
-    <img src="/static/core/tweezer/images/backgroundImage.png">
-      <div>
-        <div>
-          {% if messages %}
-            {% for message in messages %} 
-                {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
-                    <div class="alert alert-success" role="alert">
-                        {{ message }}
-                    </div>
-                {% endif %}
-                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
-                    <div class="alert alert-danger" role="alert">
-                        {{ message }}
-                    </div>
-                {% endif %} 
-            {% endfor %} 
-        {% endif %}
-          <form action="{% url 'tweezer' %}" method="post" class="p-2 mb-4">
-            {% csrf_token %}
-            <p class="message1">저희 서비스를 받아보시려면 이메일을 입력해주세요.</p>
-            <p class="message2">Please send your email down below to subscribe              </p>
-            <input
-              type="email"
-              name="email"
-              class="email"
-            />
-            <button type="submit">
-              출시알림 받기
-            </button>
-          </form>
+    <div class="wrapper">
+        <div class="grey"></div>
+        <div class="main">
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__list__items" onClick={scrollIntoMyView(1)}>repeat</li>
+                    <li class="nav__list__items" onClick={scrollIntoMyView(2)}>switch</li>
+                    <li class="nav__list__items" onClick={scrollIntoMyView(3)}>speed</li>
+                    <li class="nav__list__items" onClick={scrollIntoMyView(4)}>tutor</li>
+                    <li class="nav__list__items selected"onClick={scrollIntoMyView(5)}>contact</li>
+                </ul>
+            </nav>
+            <div class="container">
+                <img src="/static/core/tweezer/images/tweezer.png" class="bgImg"/>
+                <img src="/static/core/tweezer/images/repeat.png" class="bgImg"/>
+                <div id="loc1"></div>
+                <img src="/static/core/tweezer/images/switch.png" class="bgImg"/>
+                <div id="loc2"></div>
+                <img src="/static/core/tweezer/images/speed.png" class="bgImg"/>
+                <div id="loc3"></div>
+                <div id="loc4"></div>
+                <div>
+                    {% if messages %}
+                        {% for message in messages %} 
+                            {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                                <div class="alert alert-success" role="alert">
+                                    {{ message }}
+                                </div>
+                            {% endif %}
+                            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                                <div class="alert alert-danger" role="alert">
+                                    {{ message }}
+                                </div>
+                            {% endif %} 
+                        {% endfor %} 
+                    {% endif %}
+                    <form action="{% url 'tweezer' %}" method="post" class="p-2 mb-4">
+                        {% csrf_token %}
+                        <p class="message1">트위저와 함께 안무 연습을 시작해보세요!</p>
+                        <p class="message2">Please send your email down below to subscribe <span class="logo">Tweezer</span></p>
+                        <input
+                        type="email"
+                        name="email"
+                        class="email"
+                        placeholder="Email Address"
+                        />
+                        <button type="submit" class="btn">
+                            <span class="btn__text">출시 알림 받기</span>
+                        </button>
+                        <div id="loc5"></div>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
+        <div class="grey"></div>
     </div>
   </body>
 </html>
