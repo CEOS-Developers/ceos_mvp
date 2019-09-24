@@ -8,7 +8,7 @@
     <title>FITSTER</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static "core/style.css" %}">
+    <link rel="stylesheet" href="{% static "core/fitster/style.css" %}">
 </head>
 
 <body>
@@ -31,7 +31,7 @@
                 {% endfor %}
             {% endif %}
 
-                <img src="{% static "core/fitster.png" %}" class="logo">
+                <img src="{% static "core/fitster/fitster.png" %}" class="logo">
                 <h3 class="font-weight-normal">화면 속에 나타나다.</h3><br>
 
                 <div class="card intro">
@@ -58,7 +58,7 @@
                     {% csrf_token %}
                     <input type="hidden" name="email" class="form-control mb-3" value="fmore@gmail.com"
                         placeholder="Email address">
-                    <button type="submit" class="btn go text-white">GO!</button>
+                    <button type="submit" class="btn go text-white" disabled>GO!</button>
                 </form>
 
                 <h2 class="font-weight-bolder question">FITSTER?</h2>

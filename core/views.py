@@ -19,6 +19,7 @@ def example(request):
 
     return render(request, 'core/example.html')
 
+
 def fitster(request):
     if request.method == 'POST':
         email = request.POST['email']
@@ -30,9 +31,10 @@ def fitster(request):
         if email == 'heart@gmail.com':
             messages.success(request, "감사합니다!")
         if email == 'more@gmail.com' or email == 'heart@gmail.com':
-            return render(request, 'core/fitsterL.html')
+            return render(request, 'core/fitster/fitsterL.html')
         
-    return render(request, 'core/fitster.html')
+    return render(request, 'core/fitster/fitster.html')
+
 
 def ffitster(request):
     if request.method == 'POST':
@@ -45,7 +47,7 @@ def ffitster(request):
         if email == 'fheart@gmail.com':
             messages.success(request, "감사합니다!")
         if email == 'fmore@gmail.com' or email == 'fheart@gmail.com':
-            return render(request, 'core/ffitsterL.html')
+            return render(request, 'core/fitster/ffitsterL.html')
         
-    return render(request, 'core/ffitster.html')
+    return render(request, 'core/fitster/ffitster.html')
 
