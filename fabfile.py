@@ -31,7 +31,7 @@ appname = 'core'
 def _send_slack_message(message=''):
     print(green('_send_slack_message'))
     current_commit = local("git log -n 1 --format=%H", capture=True)
-    repo = local("git config --get remote.origin.url", capture=True).split(':')[1].split('.')[0]
+    repo = local("git config --get remote.origin.url", capture=True).split('/')[1].split('.')[0]
     branch = local("git branch | grep \* | cut -d ' ' -f2", capture=True)
     message = '%s\n%s/%s\ncurrent commit `%s`' % (message, repo, branch, current_commit)
     local("curl -X POST -H 'Content-type: application/json' --data '{\"text\": \"%s\"}' %s"
