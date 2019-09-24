@@ -28,9 +28,8 @@ def tweezer(request):
             messages.error(request, "이메일을 잘못입력하셨습니다!")
             return HttpResponseRedirect(request.path)
 
-        Email.objects.create(email=request.POST['email'], submitted_from=request.path)
+        Email.objects.create(email=request.POST['email'], submitted_from=request.GET.urlencode())
         messages.success(request, "성공적으로 저장!")
         return HttpResponseRedirect(request.path)
 
     return render(request, 'core/tweezer/home.html')
-
