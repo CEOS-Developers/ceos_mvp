@@ -32,7 +32,7 @@ def fitster(request):
         if email == 'heart@gmail.com':
             messages.success(request, "감사합니다!")
         if email == 'more@gmail.com' or email == 'heart@gmail.com':
-            return render(request, 'core/fitsterL.html')
+            return render(request, 'core/fitster/fitsterL.html')
 
     return render(request, 'core/fitster/fitster.html')
 
