@@ -25,5 +25,5 @@ urlpatterns = [
     path('example/', views.example, name='example'),
     path('fitster/', views.fitster, name='fitster'),
     path('ffitster/', views.ffitster, name='ffitster'),
-    
+    path('beanjari/',views.beanjari, name='beanjari'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
