@@ -14,8 +14,9 @@
         font-size: 2px;
     }
     .nav__list{
-        justify-content: space-around;
-        padding:0;
+        justify-content: space-between;
+        padding-left: 50%;
+        padding-right: 12.8rem;
     }    
 }
 
