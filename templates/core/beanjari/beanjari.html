@@ -1,0 +1,98 @@
+{% load static %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>beanjari</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "core/beanjari/beanjari.css" %}">
+    <link rel="stylesheet" href="{% static "core/beanjari/blog.css" %}">
+    <link rel="stylesheet" href="{% static "core/beanjari/bootstrap.min.css" %}">
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+
+
+    <script type="text/javascript">
+        $(function(){
+            $("#SubmitBtn").mouseover(function(){
+                $(this).css("background","#d63c4a")
+            })
+            $("#SubmitBtn").mouseleave(function(){
+                $(this).css("background","#ff4957")
+            })
+        });
+    </script>
+
+</head>
+
+<body style="overflow-x: hidden">
+
+
+<div class="header" style="position:fixed; background-color: white; width:100%;">
+    <nav>
+        <ul class="nav pull-right">
+            <li role="presentation" class="active">
+                <a class="blog-nav-item active" href="#mainPage">
+                    <img class="btn-img" src="{% static "core/beanjari/btnAbout.png" %}" style="width:60px" alt="ABOUT">
+                </a>
+            </li>
+            <li role="presentation">
+                <a class="blog-nav-item" href="#subPage">
+                    <img class="btn-img" src="{% static "core/beanjari/btnService.png" %}" style="width:60px" alt="SERVICE">
+                </a>
+            </li>
+            <li role="presentation">
+                <a class="blog-nav-item" href="#submitPage">
+                    <img class="btn-img" src="{% static "core/beanjari/btnContact.png" %}" style="width:60px" alt="CONTACT">
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <img class="btn-img" src="{% static "core/beanjari/logo.png" %}" style="width:80px" alt="BEANJARI">
+</div>
+
+<img src="{% static "core/beanjari/mainPage2.png" %}" id = "mainPage" style="width: 100%">
+<img src="{% static "core/beanjari/subPage.png" %}" id = "subPage" style="width: 100%">
+<img src="{% static "core/beanjari/submitPage3.png" %}" id = "submitPage" style="width: 100%">
+
+<div class="container">
+
+    <div class="position-relative overflow-hidden px-3 pb-0 p-md-5 m-md-3 text-center bg-white">
+        <div class="col-md-5 p-lg-5 mx-auto mt-5 pb-0">
+            {% if messages %}
+                {% for message in messages %}
+                    {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                        <div class="alert alert-success" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endif %}
+                    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                        <div class="alert alert-danger" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+    <div id="submitPage">
+        <form action="{% url 'beanjari' %}" method="post" style="width:100%">
+            {% csrf_token %}
+            <input type="email" name="email" class="form-control mb-3" placeholder="bean.jari@email.com"
+                   style="font-family:Chromatica-Bold;">
+            <button type="submit"  class="form-control mb-3"
+                    style="width:100%; background-color:#ff4957; border:0; color: white; font-weight: bold; font-family:Chromatica-Bold;" id="SubmitBtn">
+                이메일 등록하기
+            </button>
+        </form>
+    </div>
+</div>
+<br><br>
+<img src="{% static "core/beanjari/footer1.png" %}" style="width: 100%">
+
+</body>
+</html>
