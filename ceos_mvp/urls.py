@@ -23,5 +23,6 @@ from core import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('example/', views.example, name='example'),
+    path('beanjari/',views.beanjari, name='beanjari'),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
