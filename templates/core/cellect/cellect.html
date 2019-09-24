@@ -39,8 +39,8 @@
 			</div>
 
 			<div class="row" id='row2'>
-				<form id='form' class="form-inline justify-content-end"> <!--form 부분 처리해주기-->
-					<input type="email" class="form-control col-lg-6 col-md-6 col-sm-9 col-9" id="email" placeholder="E-mail 입력">
+				<form method='post' id='form' class="form-inline justify-content-end"> <!--form 부분 처리해주기-->
+					<input type="email" class="form-control col-lg-6 col-md-6 col-sm-9 col-9" name='email' id="email" placeholder="E-mail 입력">
 					&nbsp;
 					<button type="submit" class="btn btn-secondary col-2">전송</button>
 					{% csrf_token %}
@@ -48,18 +48,25 @@
 			</div>
 
 			<div class="row">                      <!--서버응답 받아 메세지 띄워줌-->
-			{% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
-				<p style="display:inline;" id="msg">
-					<img src="{% static 'core/cellect/image/success.png' %}">
-					{{message}}
-				</p>
+			{% if messages %}
+				{% for message in messages %}
+					{% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+						<p style="display:inline;" id="msg">
+							<img src="{% static 'core/cellect/image/success.png' %}">
+							{{message}}
+						</p>
+					{% endif %}
+
+
+					{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+						<p style="display:inline;" id="msg">
+							<img src="{% static 'core/cellect/image/fail.png' %}">
+							{{message}}
+						</p>
+					{% endif %}
+				{% endfor %}
 			{% endif %}
-			{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
-				<p style="display:inline;" id="msg">
-					<img src="{% static 'core/cellect/image/fail.png' %}">
-					{{message}}
-				</p>
-			{% endif %}
+
 			</div>
 
 			<div class="row" id='row3'>
