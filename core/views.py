@@ -62,3 +62,16 @@ def beanjari(request):
         return HttpResponseRedirect(request.path)
 
     return render(request, 'core/beanjari/beanjari.html')
+
+def cellect(request):
+    if request.method == 'POST':
+        email = request.POST['email']
+        if email == '' or re.match(EMAIL_REGEX, email) is None:
+            messages.error(request, "이메일 형식이 잘못되었습니다.\n다시 입력해주세요!")
+            return HttpResponseRedirect(request.path)
+
+        Email.objects.create(email=request.POST['email'], submitted_from=request.path)
+        messages.success(request, "이메일 전송 성공!")
+        return HttpResponseRedirect(request.path)
+
+    return render(request, 'core/cellect/cellect.html')
