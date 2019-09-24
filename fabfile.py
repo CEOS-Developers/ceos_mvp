@@ -3,7 +3,6 @@ from fabric.api import env, local, run, sudo
 from fabric.colors import green
 import os
 import json
-import subprocess
 
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
