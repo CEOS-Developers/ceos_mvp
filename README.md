@@ -1,11 +1,3 @@
-# Explanation of Fitster pages
-- `/fitster/` : 저희 조의 기획안 광고 페이지입니다.
-- `/ffitster/` : fakefitster라는 뜻으로 저희가 세운 가설을 입증하기 위해 만든 광고입니다.
-- `/fitster/`에서 go 버튼을 누르면 db에 more@gmail.com이 저장됩니다.
-- `/fitster/`에서 하트 버튼을 누르면 db에 heart@gmail.com이 저장됩니다.
-- `/ffitster/`에서 go 버튼을 누르면 db에 fmore@gmail.com이 저장됩니다.
-- `/ffitster/`에서 하트 버튼을 누르면 db에 fheart@gmail.com이 저장됩니다.
-
 # branch rule
 - 반드시 새 branch에서 작업하고, pull request를 통해 merge하도록 합니다.
 - PR시에는 운영진에게 review 받도록 합니다.
