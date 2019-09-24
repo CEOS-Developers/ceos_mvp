@@ -9,15 +9,15 @@
     />
     <meta property="og:image" content="/static/core/tweezer/images/mobile/0.png"/> 
     <meta property="og:url" content="localhost:8000/tweezer"/> 
-    <meta property="og:description" content="안무 연습을 쉽게, tweezer"/> 
-    <meta property="og:title" content="Tweezer"/>
+    <meta property="og:description" content=""/> 
+    <meta property="og:title" content="안무 연습을 쉽게, Tweezer"/>
 
     <title>Tweezer</title>
     <link rel="stylesheet" href="{% static "core/tweezer/styles.css" %}">
     <script type="text/javascript">
         function scrollIntoMyView(idNum) {
             const element = document.getElementById('loc' + idNum);
-            element.scrollIntoView({block:'end', behavior:'smooth'})
+            element.scrollIntoView({block:'start', behavior:'smooth'})
         }
         const isMobile = navigator.userAgent.match(/Mobile|iP(hone|od)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/);
     </script>  
@@ -28,11 +28,11 @@
         <div class="main">
             <nav class="nav">
                 <ul class="nav__list">
-                    <li class="nav__list__items" onClick={scrollIntoMyView(1)}>repeat</li>
-                    <li class="nav__list__items" onClick={scrollIntoMyView(2)}>switch</li>
-                    <li class="nav__list__items" onClick={scrollIntoMyView(3)}>speed</li>
-                    <li class="nav__list__items" onClick={scrollIntoMyView(4)}>tutor</li>
-                    <li class="nav__list__items selected"onClick={scrollIntoMyView(5)}>contact</li>
+                    <li class="nav__list__item" onClick={scrollIntoMyView(1)}>repeat</li>
+                    <li class="nav__list__item" onClick={scrollIntoMyView(2)}>switch</li>
+                    <li class="nav__list__item" onClick={scrollIntoMyView(3)}>speed</li>
+                    <li class="nav__list__item" onClick={scrollIntoMyView(4)}>tutor</li>
+                    <li class="nav__list__item selected"onClick={scrollIntoMyView(5)}>contact</li>
                 </ul>
             </nav>
             <div class="container">
@@ -44,12 +44,9 @@
                     <img src="/static/core/tweezer/images/mobile/4.png" class="bgImg"id="loc4"/>
                 {%else%}                                            
                     <img src="/static/core/tweezer/images/web/0.png" class="bgImg"/>
-                    <img src="/static/core/tweezer/images/web/1.png" class="bgImg" id="loc1"/>
-                    
-                    <img src="/static/core/tweezer/images/web/2.png" class="bgImg"id="loc2"/>
-                    
-                    <img src="/static/core/tweezer/images/web/3.png" class="bgImg"id="loc3"/>
-                    
+                    <img src="/static/core/tweezer/images/web/1.png" class="bgImg" id="loc1"/>                    
+                    <img src="/static/core/tweezer/images/web/2.png" class="bgImg"id="loc2"/>                    
+                    <img src="/static/core/tweezer/images/web/3.png" class="bgImg"id="loc3"/>                    
                     <img src="/static/core/tweezer/images/web/4.png" class="bgImg"id="loc4"/>
                 {%endif%}
                 <div>
@@ -71,13 +68,8 @@
                         {% csrf_token %}
                         <p class="message1">트위저와 함께 안무 연습을 시작해보세요!</p>
                         <p class="message2">Please send your email down below to subscribe <span class="logo">Tweezer</span></p>
-                        <input
-                        type="email"
-                        name="email"
-                        class="email"
-                        placeholder="Email Address"
-                        />
-                        <button type="submit" class="btn">
+                        <input type="email" name="email" class="email" placeholder="Email Address"/>
+                        <button type="submit" class="btn-submit">
                             <span class="btn__text">출시 알림 받기</span>
                         </button>
                         <div id="loc5"></div>

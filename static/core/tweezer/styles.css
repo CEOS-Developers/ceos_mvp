@@ -1,51 +1,42 @@
-@media  (max-width: 399px){
-    html{
-        font-size: 1px;
-    }
-    .nav__list{
-        justify-content: space-around;
-        padding:0;
-    }    
-}
-
-
-@media  (min-width:400px) and (max-width: 599px){
+@media  (max-width: 414px){
     html{
         font-size: 2px;
     }
     .nav__list{
-        justify-content: space-between;
-        padding-left: 50%;
-        padding-right: 12.8rem;
-    }    
+        justify-content: space-around;
+        padding:0;
+    }
+    .main{
+        max-width: 399px;
+        margin: 0 auto;
+    }
+}
+
+
+@media  (min-width:415px) and (max-width: 599px){
+    html{
+        font-size: 2px;
+    }
 }
 
 @media  (min-width:600px) and (max-width: 799px){
     html{
         font-size: 3px;
     }
-    .nav__list{
-        justify-content: space-between;
-        padding-left: 50%;
-        padding-right: 12.8rem;
-    }    
 }
 
 @media (min-width:800px) and (max-width: 899px){
     html{
         font-size: 4px;
     }
-    .nav__list{
-        justify-content: space-between;
-        padding-left: 50%;
-        padding-right: 12.8rem;
-    }    
 }
 
 @media (min-width: 900px){   
     html{
         font-size: 5px;
     }
+}
+@media (min-width:400px){
     .nav__list{
         justify-content: space-between;
         padding-left: 50%;
@@ -65,10 +56,9 @@ body{
 }  
 .grey{
     flex:1;
-    background-color: #5f5f5f;
+    background-color:#ffffff;
 }
 .main{
-    position: relative;
     max-width: 192rem;
     width: 100%;
 }
@@ -82,14 +72,13 @@ body{
     z-index: 1;
     background-color: #ffffff;
     box-shadow: 0 1px 14px 0 rgba(0, 0, 0, 0.16);
-
 }
 .nav__list{
     list-style:none;
     display: flex;
     flex-direction: row;
 }
-.nav__list__items {
+.nav__list__item {
     width: 7rem;
     height: 7rem;
     object-fit: contain;
@@ -116,10 +105,16 @@ img.bgImg{
     width: 139.2rem;
     height: 12.8rem;
     font-size: 5rem;
-    background-color: indianred;
     border:none;
     opacity: 0.6;
     padding-top: 6rem;
+}
+.alert-success{
+    background-color: #97BF7A;
+}
+
+.alert-danger{
+    background-color: indianred;
 }
 span.text{
     width: 100%;
@@ -170,7 +165,7 @@ span.logo{
   text-align: left;
   color: #5636d8;
 }
-button.btn{
+button.btn-submit{
     margin: 0 auto;
     display: flex;
     flex-direction: row;
