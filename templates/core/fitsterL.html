@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Example</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "core/style.css" %}">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="position-relative overflow-hidden px-3 pb-0 p-md-5 m-md-3 text-center bg-white">
+            <div class="col-md-5 p-lg-5 mx-auto mt-5 pb-0">
+                {% if messages %}
+                {% for message in messages %}
+                    {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                        <div class="alert alert-primary" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endif %}
+                    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                        <div class="alert alert-danger" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+
+                <img src="{% static "core/fitster.png" %}" class="logo">
+                <h3 class="font-weight-normal">화면 속에 나타나다.</h3><br>
+
+                <div class="card intro">
+                    <div class="card-body text-center">
+                        <p class="font-weight-normal intro">
+                            "쇼핑몰 모델 핏만 보고<br>
+                            옷 사서 망한 사람<br>
+                            나밖에 없어?"<br><br>
+                            "직접 입어불 수도 없고<br>
+                            불편해!"
+                        </p>
+                    </div>
+                </div><br>
+
+                <p class="font-weight-normal exp">
+                    이제는 FITSTER로<br>
+                    너의 의류 착용 모습을<br>
+                    가상으로 확인해봐!<br>
+                    <h2 class="font-weight-bolder question">'FITSTER'가 궁금해?</h2>
+                </p>
+
+
+                <form action="{% url 'fitster' %}" method="post" class="p-2 mb-4">
+                    {% csrf_token %}
+                    <input type="hidden" name="email" class="form-control mb-3" value="more@gmail.com"
+                        placeholder="Email address">
+                    <button type="submit" class="btn go text-white">GO!</button>
+                </form>
+
+                <h2 class="font-weight-bolder question">FITSTER?</h2>
+
+                <p class="font-weight-normal exp">
+                    <h2 class="font-weight-bolder question">이제는 내 핏을 확인하자!</h2>
+                    Fitster는 사용자로부터<br>
+                    체형 정보를 입력받아<br>
+                    그와 비슷한 체형의<br>
+                    가상 모델을 제공합니다.<br><br>
+
+                    나와 비슷한 체형의 실제 모델을<br>
+                    3D로 스캔한 사진을 통해<br>
+                    본인의 예상 핏을 확인하세요!<br><br>
+                </p>
+
+
+
+                <p class="font-weight-normal exp">
+                    <h2 class="font-weight-bolder question">이 서비스를 원하시면<br>아래 하트를 눌러주세요.</h2>
+                </p>
+                <form action="{% url 'fitster' %}" method="post" class="p-2 mb-4">
+                    {% csrf_token %}
+                    <input type="hidden" name="email" class="form-control mb-3" value="heart@gmail.com"
+                        placeholder="Email address">
+                    <button type="submit" class="btn btn-outline-danger">&hearts;</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

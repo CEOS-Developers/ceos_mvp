@@ -1,3 +1,70 @@
+/*폰트*/
+
+@font-face {
+  font-family: 'GyeonggiBatang'; 
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GyeonggiBatang.woff') format('woff'); 
+  font-weight: normal; 
+  font-style: normal; 
+}
+
+@font-face {
+  font-family: 'S-CoreDream-3Light'; 
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff'); 
+  font-weight: normal; 
+  font-style: normal; }
+
+/*--전체 페이지--*/
+
+*{
+  font-family: 'S-CoreDream-3Light';
+}
+
+img.logo{
+  display: block;
+  margin: 0px auto;
+  width: 200px;
+  height: auto;
+}
+
+h3, p.intro{
+  font-family: 'GyeonggiBatang';
+  font-size: 17px;
+  margin-bottom: 0px;
+}
+
+h3{
+  padding-top: 3%;
+}
+
+p.intro{
+  color: grey;
+  font-size: 75%;
+}
+
+.card{
+  margin-top: 10%;
+  margin-bottom: 8%;
+  font-size: 20px;
+}
+
+p.exp{
+  font-size: 15px;
+}
+
+.question{
+  margin-top: 15%;
+  margin-bottom: 10%;
+  font-size: 20px;
+}
+
+button.go{
+  background-color: rgb(51,51, 204);
+}
+
+.img-fluid{
+  max-width: 20%;
+}
+
 .container {
   max-width: 960px;
 }
