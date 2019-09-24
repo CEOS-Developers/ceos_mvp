@@ -6,7 +6,6 @@ import re
 
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 
-
 def example(request):
     if request.method == 'POST':
         email = request.POST['email']
@@ -33,7 +32,6 @@ def fitster(request):
             messages.success(request, "감사합니다!")
         if email == 'more@gmail.com' or email == 'heart@gmail.com':
             return render(request, 'core/fitster/fitsterL.html')
-
     return render(request, 'core/fitster/fitster.html')
 
 
@@ -49,7 +47,6 @@ def ffitster(request):
             messages.success(request, "감사합니다!")
         if email == 'fmore@gmail.com' or email == 'fheart@gmail.com':
             return render(request, 'core/fitster/ffitsterL.html')
-
     return render(request, 'core/fitster/ffitster.html')
 
 
