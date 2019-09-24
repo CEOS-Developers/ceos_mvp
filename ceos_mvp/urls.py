@@ -24,5 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('example/', views.example, name='example'),
     path('tweezer/', views.tweezer, name='tweezer'),
-
+    path('fitster/', views.fitster, name='fitster'),
+    path('ffitster/', views.ffitster, name='ffitster'),
+    path('beanjari/',views.beanjari, name='beanjari'),
+    path('cellect/',views.cellect, name='cellect'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

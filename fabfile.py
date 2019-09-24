@@ -16,6 +16,7 @@ REMOTE_HOST_SSH = envs['REMOTE_HOST_SSH']
 REMOTE_HOST = envs['REMOTE_HOST']
 REMOTE_USER = envs['REMOTE_USER']
 ALLOWED_HOSTS = envs['ALLOWED_HOSTS']
+SLACK_WEBHOOK_URL = envs['SLACK_WEBHOOK_URL']
 
 env.user = REMOTE_USER
 username = env.user
@@ -25,6 +26,17 @@ env.key_filename = ["~/.ssh/ceos_developers.pem", ]
 virtualenv_folder = '/home/{}/.pyenv/versions/production'.format(env.user)
 project_folder = '/home/{}/srv/{}'.format(env.user, PROJECT_NAME)
 appname = 'core'
+
+
+def _send_slack_message(message=''):
+    print(green('_send_slack_message'))
+    current_commit = local("git log -n 1 --format=%H", capture=True)
+    repo = local("git config --get remote.origin.url", capture=True).split('/')[1].split('.')[0]
+    branch = local("git branch | grep \* | cut -d ' ' -f2", capture=True)
+    message = '%s\n%s/%s\ncurrent commit `%s`' % (message, repo, branch, current_commit)
+    local("curl -X POST -H 'Content-type: application/json' --data '{\"text\": \"%s\"}' %s"
+          % (message, SLACK_WEBHOOK_URL)
+          )
 
 
 def _get_latest_source():
@@ -102,6 +114,7 @@ def _restart_nginx():
 
 
 def deploy():
+    _send_slack_message(message='*Deploy has been started.*')
     _get_latest_source()
     _update_settings()
     _update_virtualenv()
@@ -111,3 +124,4 @@ def deploy():
     _grant_sqlite3()
     _restart_uwsgi()
     _restart_nginx()
+    _send_slack_message(message='*Deploy succeed.*')

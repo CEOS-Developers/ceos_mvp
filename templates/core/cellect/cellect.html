@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta chatset='UTF-8'>
+	<title>
+		cellect
+	</title>
+	<link rel="stylesheet"  href="{% static 'core/cellect/style.css' %}">
+	<!-- <link rel="stylesheet"  href='style.css'> -->
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Facebook Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '762970527494770');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=762970527494770&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+</head>
+<body style="background-image:url({% static 'core/cellect/image/background.png'%});">
+<div class='container text-center overflow-hidden' id='container'>
+	<div class="row">                                      <!--cellct 로고-->
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<div class='logo-wrapper'>
+				<img class='img-fluid' src="{% static 'core/cellect/image/logo.png' %}">
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-6 col-md-12 col-sm-12">           <!--이미지 1-->  <!--이미지 경로들 서버 구조에 맞게 수정 부탁!!-->
+			<div class='img-wrapper'>
+				<img class='img-responsive' src="{% static 'core/cellect/image/image1.png' %}">
+			</div>
+		</div>
+
+		<div class="col-lg-6 col-md-12 col-sm-12">           <!--설명 1-->
+			<div class="row" id='row1'>
+				<p class='text1'>인플루언서의<br> 공구 제품<br> 한눈에 모아보세요</p>
+			</div>
+
+			<div class="row">
+				<p class='question'>저희 서비스가 궁금하시다면?</p>
+			</div>
+
+			<div class="row" id='row2'>
+				<form method='post' id='form' class="form-inline justify-content-end"> <!--form 부분 처리해주기-->
+					<input type="email" class="form-control col-lg-6 col-md-6 col-sm-9 col-9" name='email' id="email" placeholder="E-mail 입력">
+					&nbsp;
+					<button type="submit" class="btn btn-secondary col-2">전송</button>
+					{% csrf_token %}
+				</form>
+			</div>
+
+			<div class="row">                      <!--서버응답 받아 메세지 띄워줌-->
+			{% if messages %}
+				{% for message in messages %}
+					{% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+						<p style="display:inline;" id="msg">
+							<img src="{% static 'core/cellect/image/success.png' %}">
+							{{message}}
+						</p>
+					{% endif %}
+
+
+					{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+						<p style="display:inline;" id="msg">
+							<img src="{% static 'core/cellect/image/fail.png' %}">
+							{{message}}
+						</p>
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+
+			</div>
+
+			<div class="row" id='row3'>
+				<p class="text2">지금 가장 핫한<br> 인플루언서들은<br> 어떤 제품을 사용할까요?</p>
+			</div>
+		</div>
+	</div>
+
+	<div id='row4' class="row">
+		<div id=content2 class="col-lg-6 col-sm-12">            <!--설명 2-->
+			<p id="title">다양한<br> 카테고리의<br> 상품을 한눈에</p>
+      <br>
+      <p id="detail">뷰티, 푸드, 패션까지<br> 인플루언서들이<br> '신뢰'하는 상품들을<br> 한눈에 볼 수 있는 서비스!</p>
+    </div>
+
+    <div id=im2 class="col-lg-6 col-sm-12"> 								<!--이미지 2-->
+			<img src="{% static 'core/cellect/image/image2.png' %}" class="img-responsive">
+    </div>
+  </div>
+
+	<div class="row">																				  <!--이미지 3-->
+		<div class='img-center'>
+			<img class='img-fluid' src="{% static 'core/cellect/image/image3.png' %}" >
+		</div>
+	</div>
+
+  <div class="row">																				<!--개인정보 안내3-->
+		<div id=info class="col-lg-6 col-sm-12">
+			<p>
+				<br>
+				[ 개인정보 수집 안내 ]<br>
+				1. 목적 : 서비스 출시 알림 목적 홍보 및 설문조사<br>
+				2. 항목 : 이메일 주소<br>
+				3. 보유기간 : 수집시점 3개월 이후 파기
+			</p>
+		</div>
+
+		<div id=content3 class="col-lg-6 col-sm-12">					   <!--설명 3-->
+			<p id="title">공동 구매로<br> 내가 원하는 제품을<br> 훨씬 저렴하게 구매</p>
+			<br>
+      <p id="detail">원하는 제품을 공동 구매를 통해 <br> 훨씬 저렴한 가격으로 구매할 수 있다</p>
+    </div>
+  </div>
+
+	<div class="row">	
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;																				 <!--하단 로고-->
+			<img src="{% static 'core/cellect/image/logo.png' %}" class="img-responsive2">
+	</div>
+
+</div>
+</body>
+</html>
