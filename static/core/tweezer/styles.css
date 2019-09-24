@@ -7,12 +7,12 @@
         padding:0 10rem;
     }
     .nav__list__item{
-        width: 10rem;
-        height: 10rem;
-        font-size: 10rem;
+        width: 5rem;
+        height: 5rem;
+        font-size: 5rem;
     }
     .main{
-        max-width: 399px;
+        max-width: 414px;
         margin: 0 auto;
     }
 }
