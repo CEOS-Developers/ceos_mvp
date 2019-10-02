@@ -8,3 +8,9 @@ class Email(models.Model):
 
     class Meta:
         managed = True
+
+
+class Site(models.Model):
+    title = models.CharField(max_length=100)
+    url = models.CharField(max_length=2000)
+    vote_count = models.IntegerField(default=0)

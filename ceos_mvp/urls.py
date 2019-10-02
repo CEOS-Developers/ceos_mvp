@@ -14,11 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
 from core import views
+from core import api
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,4 +29,5 @@ urlpatterns = [
     path('ffitster/', views.ffitster, name='ffitster'),
     path('beanjari/',views.beanjari, name='beanjari'),
     path('cellect/',views.cellect, name='cellect'),
+    path('api/v1/', include('core.api.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
