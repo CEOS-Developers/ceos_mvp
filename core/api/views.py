@@ -8,7 +8,7 @@ class SiteListView(ListAPIView):
     permission_classes = (AllowAny,)
     serializer_class = SiteSerializer
     model = serializer_class.Meta.model
-    queryset = model.objects.all()
+    queryset = model.objects.order_by('-id').all()
 
 
 class SiteCreateView(CreateAPIView):
