@@ -1,0 +1,111 @@
+.container{
+    width: 100%;
+    max-width: 1000px;
+}
+
+.alert{
+    width: 70%;
+    height: 10%;
+    margin: 5% 15%;
+    border-radius: 1rem;
+    padding-left: 1rem;
+    background-color: #cccccc;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.text{
+    text-size-adjust: 60%;
+    text-align: center;
+    padding-left: 1rem;
+    padding-top: 0.5rem;
+}
+
+.wrapper{
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.backgroundImage{
+    width: 100%;
+    max-width: 1000px;
+}
+
+nav{
+    position: absolute;
+    top: 20%;
+    width: 100%;
+    max-width: 1000px;
+    height: 5%;
+}
+
+ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    margin-inline-start: 20%;
+    justify-content: space-evenly;
+}
+
+li{
+    width: 20%;
+    display: inline-block;
+    vertical-align: middle; 
+    margin-right: 7%;
+}
+
+.navButton{
+    width:100%;
+    height: 100%;
+    background-color: transparent;
+    border: transparent;
+    
+}
+
+.navImage{
+    width: 80%;
+    height: 80%;
+}
+
+.emailForm{
+    position: absolute;
+    top: 25%;
+    width: 80%;
+    max-width: 800px;
+    height: 5%;
+    margin-left: 10%;
+}
+
+.email{
+    width:85%;
+    max-width: 800px;
+    height: 100%;
+    margin-left: 5%;
+    border: transparent;
+    box-shadow: 0px 0px 5px 5px #dddddd;
+    border-radius: 0.5rem;
+    font-family: NotoSansKR;
+    font-size: 80%;
+    text-align: left;
+    color: #888888;
+    padding-left: 5% ;
+}
+
+.summitButton{
+    width:100%;
+    height: 100%;
+    background-color: transparent;
+    border: transparent;
+}
+
+button{
+    background-color: transparent;
+    border: transparent;
+}
+
+.submitButtonImage{
+    width:100%;
+    max-width: 800px;
+    height: 100%;
+}

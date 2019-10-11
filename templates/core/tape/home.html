@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Tape</title>
+    <link rel="stylesheet" href="../../../static/core/tape/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div>
+                {% if messages %}
+                {% for message in messages %}
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                <div class="alert alert-success" role="alert">
+                    <span class="text">{{ message }}</span>
+                </div>
+                {% endif %}
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                <div class="alert alert-danger" role="alert">
+                    <span class="text">{{ message }}</span>
+                </div>
+                {% endif %}
+                {% endfor %}
+                {% endif %}
+        </div>
+        <div class="wrapper" id="aboutPage">
+            <nav>
+                <ul>
+                    <li>
+                        <a name="aboutButton" class="navButton" id="aboutButton" href="#aboutPage">
+                            <img src="../../../static/core/tape/NavAbout.png" class="navImage">
+                        </a>
+                    </li>
+                    <li>
+                        <a name="serviceButton" class="navButton" id="serviceButton" href="#servicePage">
+                            <img src="../../../static/core/tape/NavService.png" class="navImage">
+                        </a>
+                    </li>
+                    <li>
+                        <a name="contactButton" class="navButton" id="contactButton" href="#contactPage">
+                            <img src="../../../static/core/tape/NavContact.png" class="navImage">
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <img src="../../../static/core/tape/About.png" class="backgroundImage" id="aboutImage">
+        </div>
+        <div class="wrapper" id="servicePage">
+            <img src="../../../static/core/tape/Service.png" class="backgroundImage" id="serviceImage">
+        </div>
+        <div class="wrapper" id="contactPage">
+            <form name="getEmail" class="emailForm" action="{% url 'tape' %}" method="post">
+                {% csrf_token %}
+                <input type="email" name="email" class="email" placeholder="이메일을 입력해주세요" />
+                <button type="submit" class="submitButton">
+                    <img src="../../../static/core/tape/SubmitButton.png" class="submitButtonImage">
+                </button>
+            </form>
+            <img src="../../../static/core/tape/Contact.png" class="backgroundImage" id="contactImage">
+        </div>
+    </div>
+</body>
+
+<script="text/javascript"> </script> </html>
