@@ -96,8 +96,8 @@ def tape(request):
         if email == '' or re.match(EMAIL_REGEX, email) is None:
             messages.error(request, "이메일을 잘못 입력하셨습니다!")
             return HttpResponseRedirect(request.path)
-        ref = request.POST.get('ref')
-        Email.objects.create(email=request.POST['email'], submitted_from=ref)
+
+        Email.objects.create(email=request.POST['email'], submitted_from=request.path)
         messages.success(request, "감사합니다.")
         return HttpResponseRedirect(request.path)
 

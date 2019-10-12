@@ -12,20 +12,24 @@
 <body>
     <div class="container">
         <div>
-                {% if messages %}
-                {% for message in messages %}
-                {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
-                <div class="alert alert-success" role="alert">
-                    <span class="text">{{ message }}</span>
-                </div>
-                {% endif %}
-                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
-                <div class="alert alert-danger" role="alert">
-                    <span class="text">{{ message }}</span>
-                </div>
-                {% endif %}
-                {% endfor %}
-                {% endif %}
+            {% if messages %}
+            {% for message in messages %}
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+            <div class="alert alert-success" role="alert">
+                <span class="text">
+                    {{ message }}
+                </span>
+            </div>
+            {% endif %}
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+            <div class="alert alert-danger" role="alert">
+                <span class="text">
+                    {{ message }}
+                </span>
+            </div>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
         </div>
         <div class="wrapper" id="aboutPage">
             <nav>
@@ -64,5 +68,3 @@
         </div>
     </div>
 </body>
-
-<script="text/javascript"> </script> </html>
