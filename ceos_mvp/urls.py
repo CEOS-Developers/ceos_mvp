@@ -30,4 +30,5 @@ urlpatterns = [
     path('beanjari/',views.beanjari, name='beanjari'),
     path('cellect/',views.cellect, name='cellect'),
     path('api/v1/', include('core.api.urls')),
+    path('tape/',views.tape, name='tape'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
