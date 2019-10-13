@@ -59,7 +59,7 @@
         <div class="wrapper" id="contactPage">
             <form name="getEmail" class="emailForm" action="{% url 'tape' %}" method="post">
                 {% csrf_token %}
-                <input type="email" name="email" class="email" placeholder="이메일을 입력해주세요" style="border: 1rem; solid; #222222"/>
+                <input type="email" name="email" class="email" placeholder="이메일을 입력해주세요" style="border: 2px solid rgba(0,0,0,0.3);border-radius: 4px;"/>
                 <button type="submit" class="submitButton">
                     <img src="../../../static/core/tape/SubmitButton.png" class="submitButtonImage">
                 </button>
