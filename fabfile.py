@@ -114,7 +114,7 @@ def _restart_nginx():
 
 
 def deploy():
-    # _send_slack_message(message='*Deploy has been started.*')
+    _send_slack_message(message='*Deploy has been started.*')
     _get_latest_source()
     _update_settings()
     _update_virtualenv()
@@ -124,4 +124,4 @@ def deploy():
     _grant_sqlite3()
     _restart_uwsgi()
     _restart_nginx()
-    # _send_slack_message(message='*Deploy succeed.*')
+    _send_slack_message(message='*Deploy succeed.*')
