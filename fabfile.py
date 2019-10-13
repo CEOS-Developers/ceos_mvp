@@ -108,6 +108,7 @@ def _restart_uwsgi():
 
 def _restart_nginx():
     print(green('_restart_nginx'))
+    sudo('sudo rm -rf /etc/nginx/sites-enabled/*')
     sudo('sudo cp -f {}/.config/nginx.conf /etc/nginx/sites-available/ceos_mvp.conf'.format(project_folder))
     sudo('sudo ln -sf /etc/nginx/sites-available/ceos_mvp.conf /etc/nginx/sites-enabled/mysite.conf')
     sudo('sudo systemctl restart nginx')
